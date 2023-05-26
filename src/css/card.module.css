@@ -1,0 +1,16 @@
+.cardContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minMax(300px, 1fr));
+}
+
+.card{
+    gap: 5em;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.imageContainer{
+    height: 15em;
+    overflow: hidden;
+}
