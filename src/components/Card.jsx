@@ -20,7 +20,7 @@ function Card() {
             </div>
             <div className="card-body">
               <h5 className="card-title">{e.title}</h5>
-              <button href="#" className="btn btn-primary" onClick={() => {navigate(`/Edit`)}}>
+              <button href="#" className="btn btn-primary" onClick={() => {navigate(`/Edit?url=${e.image}`)}}>
                 Edit
               </button>
             </div>

@@ -11,7 +11,9 @@ export const useGetMemes = () => {
     const memes = data.map(e => ({
         id: e.id,
         title: e.name,
-        image: e.url
+        image: e.url,
+        width: e.width,
+        height: e.height
     }));
 
     return { memes }
