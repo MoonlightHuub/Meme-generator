@@ -2,4 +2,12 @@
     border: 2.5px solid #C9C8C4;
     border-radius: 20px;
     padding: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.image{
+    width: 35em;
+    height: auto;
+    box-shadow: 0px 0px 44px 0px rgba(0,0,0,0.75);
 }

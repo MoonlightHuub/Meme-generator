@@ -1,21 +1,35 @@
 import Draggable from "react-draggable";
-import { useState } from "react";
+import { useText } from "../hooks/useText";
+import { useContext } from 'react'
+import { MyContext } from "../context/modifyContext";
+import styles from '../css/text.module.css'
 
 function Text() {
-    const [editMode, setEditMode] = useState(false)
-    const [value, setValue] = useState('Double click to edit')
-
-    const handleKeyPress = (event) => {
-        if (event.key === 'Enter') {
-          setEditMode(false);
-        }
-    };
-    
+  const { value, setValue, handleKeyPress, editMode, setEditMode } = useText();
+  const { textSize, color } = useContext(MyContext);
 
   return (
-    <div>
+    <div
+      style={{ position: "absolute"}}
+    >
       <Draggable>
-        {editMode ? <input onKeyPress={handleKeyPress} value={value} onChange={e => setValue(e.target.value)} /> : <h1 onDoubleClick={() => setEditMode(true)}>{value}</h1>}
+        {editMode ? (
+          <textarea
+            onKeyDown={handleKeyPress}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            style={{fontSize: `${textSize}px`}}
+          />
+        ) : (
+          <div className={styles.textContainer}>
+            <p 
+              onDoubleClick={() => setEditMode(true)}
+              style={{fontSize: `${textSize}px`, color: `${color}`, fontWeight: "bold"}}
+              >
+              {value}
+            </p>
+          </div>
+        )}
       </Draggable>
     </div>
   );
